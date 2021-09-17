@@ -1,10 +1,9 @@
 import { SagaIterator } from 'redux-saga'
-import { all, call, fork, put, select, takeEvery, CallEffect } from 'redux-saga/effects'
+import { all, call, fork, put, takeEvery, CallEffect } from 'redux-saga/effects'
 import { PERSON_FETCH, PersonFetchAction, PersonResponse, FilmResponse, SpeciesResponse } from './types'
 import { personFetchSuccess } from './actions'
 import { fetchPerson, fetchFilm, fetchSpecies } from '../../api'
 import { PersonType } from '../../state/person/types';
-import { AppState } from '../../store';
 import { extractId } from '../../utils';
 import _ from 'lodash';
 

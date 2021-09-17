@@ -1,11 +1,19 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { PersonType, PersonState } from '../../state/person/types';
+import { PersonState } from '../../state/person/types';
 import { personFetch } from '../../state/person/actions';
-import { Redirect, Route, Switch, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { AppState } from '../../store';
 import Film from '../Film';
 import Species from '../Species';
+import {
+    Table,
+    TableBody,
+    TableCell,
+    TableContainer,
+    TableRow
+} from '@mui/material';
+import Paper from '@mui/material/Paper';
 
 
 const PersonDetails: React.FC = () => {
@@ -26,21 +34,62 @@ const PersonDetails: React.FC = () => {
             }
             {
                 (person !== undefined && person !== null) && <>
-                    <div>{person.name}</div>
-                    <div>{person.birth_year}</div>
-                    <div>{person.created}</div>
-                    <div>{person.edited}</div>
-                    <div>{person.eye_color}</div>
-                    <div>{person.gender}</div>
-                    <div>{person.hair_color}</div>
-                    <div>{person.height}</div>
-                    <div>{person.homeworld}</div>
-                    <div>{person.mass}</div>
-                    <div>{person.name}</div>
-                    <div>{person.skin_color}</div>
-                    <div>{person.starships}</div>
-                    <div>{person.url}</div>
-                    <div>{person.vehicles}</div>
+
+                    <TableContainer component={Paper}>
+                        <Table size='small' aria-label="simple table">
+                            <TableBody>
+                                <TableRow>
+                                    <TableCell align="right">Name</TableCell>
+                                    <TableCell>{person.name}</TableCell>
+                                </TableRow>
+                                <TableRow>
+                                    <TableCell align="right">Birth Year</TableCell>
+                                    <TableCell>{person.birth_year}</TableCell>
+                                </TableRow>
+                                <TableRow>
+                                    <TableCell align="right">Eye Color</TableCell>
+                                    <TableCell>{person.eye_color}</TableCell>
+                                </TableRow>
+                                <TableRow>
+                                    <TableCell align="right">Gender</TableCell>
+                                    <TableCell>{person.gender}</TableCell>
+                                </TableRow>
+                                <TableRow>
+                                    <TableCell align="right">Hair Color</TableCell>
+                                    <TableCell>{person.hair_color}</TableCell>
+                                </TableRow>
+                                <TableRow>
+                                    <TableCell align="right">Height</TableCell>
+                                    <TableCell>{person.height}</TableCell>
+                                </TableRow>
+                                <TableRow>
+                                    <TableCell align="right">Homeworld</TableCell>
+                                    <TableCell>{person.homeworld}</TableCell>
+                                </TableRow>
+                                <TableRow>
+                                    <TableCell align="right">Mass</TableCell>
+                                    <TableCell>{person.mass}</TableCell>
+                                </TableRow>
+                                <TableRow>
+                                    <TableCell align="right">Skin Color</TableCell>
+                                    <TableCell>{person.skin_color}</TableCell>
+                                </TableRow>
+                                <TableRow>
+                                    <TableCell align="right">Starships</TableCell>
+                                    <TableCell>{person.starships}</TableCell>
+                                </TableRow>
+                                <TableRow>
+                                    <TableCell align="right">Url</TableCell>
+                                    <TableCell>{person.url}</TableCell>
+                                </TableRow>
+                                <TableRow>
+                                    <TableCell align="right">Vehicles</TableCell>
+                                    <TableCell>{person.vehicles}</TableCell>
+                                </TableRow>
+                            </TableBody>
+                        </Table>
+                    </TableContainer>
+
                     {
                         person.films.length > 0 &&
                         <div>

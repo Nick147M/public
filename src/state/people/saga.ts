@@ -1,5 +1,5 @@
 import { SagaIterator } from 'redux-saga'
-import { all, call, fork, put, select, takeEvery } from 'redux-saga/effects'
+import { all, fork, put, select, takeEvery } from 'redux-saga/effects'
 import { PEOPLE_FETCH, PeopleFetchAction } from './types'
 import { peopleFetchSuccess } from './actions'
 import { fetchPeople } from '../../api'
